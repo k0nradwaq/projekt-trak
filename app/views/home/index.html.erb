@@ -1,2 +1,9 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if user_signed_in? %>
+  <p>Zalogowany User: <%= current_user.email %></p>
+    <% if current_user.admin == true %>
+      <%= render 'layouts/paneladmina' %>
+      <%else%>
+      <h1>witam</h1>
+      <p>czesc program logowania</p>
+      <%end%>
+<% end %>

@@ -1,0 +1,25 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <% if user_signed_in? %>
+      <p style="color:#FFFFFF">Zalogowany User: <%= current_user.email %></p>
+    <% end %>
+    <!--<%= link_to "Lista obecności", '#', id: "logo" %> -->
+
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home",   root_path %></li>
+        <li><%= link_to "Help",   "" %></li>
+
+        <% if user_signed_in? %>
+
+        <li><%= link_to "Wyloguj sie" ,destroy_user_session_path, method: :delete %>
+          <% else %>
+
+          <li><%= link_to "Log in", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+
+
+  </div>
+</header>
