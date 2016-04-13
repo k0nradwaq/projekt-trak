@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'cancancan', '~> 1.10'
 gem 'devise'
 gem 'bootstrap-sass',       '3.2.0.0'
 gem 'mysql2', '~> 0.3.18'

@@ -1,11 +1,31 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   resources :vacations
   resources :appearances
   resources :departments
   resources :departments
-  devise_for :users
+  #resources :user, :controller => "user"
+  resources :users
+
+
   root 'home#index'
-  get 'home/tworzenieusera'
+
+
+  Rails.application.routes.draw do
+
+  get 'users/new'
+
+  devise_for :users
+  resources :users, except: :create
+
+  # Name it however you want
+  post 'create_user' => 'users#create', as: :create_user
+
+  end
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
